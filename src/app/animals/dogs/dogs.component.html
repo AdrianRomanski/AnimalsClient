@@ -1,0 +1,58 @@
+<div class="container-fluid bg-light">
+  <div class="col-12 p-4">
+    <table class="table table-condensed table-striped table-dark" cdk-table [dataSource]="DogsDataSource">
+
+      <ng-container cdkColumnDef="race">
+        <th cdk-header-cell *cdkHeaderCellDef> Race </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.race}} </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="color">
+        <th cdk-header-cell *cdkHeaderCellDef> Color </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.color}} </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="size">
+        <th cdk-header-cell *cdkHeaderCellDef> Size </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.size}} </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="weight">
+        <th cdk-header-cell *cdkHeaderCellDef> Weight </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="details">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let element">
+          <button class="btn btn-success" (click)="getDog(element.id)">Details</button>
+        </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="edit">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let element">
+          <button class="btn btn-primary" (click)="getDog(element.id)">Edit</button>
+        </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="delete">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let element">
+          <button class="btn btn-danger" (click)="getDog(element.id)">Delete</button>
+        </td>
+      </ng-container>
+
+      <thead>
+      <tr cdk-header-row *cdkHeaderRowDef="DisplayedColumns"></tr>
+      </thead>
+      <tbody>
+      <tr cdk-row *cdkRowDef="let row; columns: DisplayedColumns;"></tr>
+      </tbody>
+    </table>
+  </div>
+  <app-detail-dog *ngIf="action === 'view'" [dog]="selectedDog"></app-detail-dog>
+</div>
+
+
+
