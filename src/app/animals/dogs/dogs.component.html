@@ -1,5 +1,7 @@
 <div class="container-fluid bg-light">
-  <div class="col-12 p-4">
+  <div class="row">
+
+  <div class="col-8 p-4">
     <table class="table table-condensed table-striped table-dark" cdk-table [dataSource]="DogsDataSource">
 
       <ng-container cdkColumnDef="race">
@@ -32,7 +34,7 @@
       <ng-container cdkColumnDef="edit">
         <th cdk-header-cell *cdkHeaderCellDef></th>
         <td cdk-cell *cdkCellDef="let element">
-          <button class="btn btn-primary" (click)="getDog(element.id)">Edit</button>
+          <button class="btn btn-primary" (click)="editDog(element.id)">Edit</button>
         </td>
       </ng-container>
 
@@ -51,8 +53,12 @@
       </tbody>
     </table>
   </div>
-  <app-detail-dog *ngIf="action === 'view'" [dog]="selectedDog"></app-detail-dog>
+  <div class="col-4 bg-light text-dark p-5">
+    <app-detail-dog *ngIf="action === 'view'" [dog]="selectedDog"></app-detail-dog>
+  </div>
+  <div class="col-12 bg-primary">
+    <app-edit-dog *ngIf="action === 'edit' || action === 'add'" [dog]="selectedDog"></app-edit-dog>
+  </div>
 </div>
 
-
-
+</div>

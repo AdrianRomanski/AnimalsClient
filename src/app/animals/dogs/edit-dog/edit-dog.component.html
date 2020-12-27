@@ -1,1 +1,35 @@
-<p>edit-dog works!</p>
+<h1 class="text-white text-center">{{dog.id == null ? 'Add' : 'Edit'}} Dog</h1>
+
+<form #dogForm="ngForm">
+
+  <div class="form-group row">
+
+    <div class="col-8 row">
+      <div class="col-6">
+        <label class="pl-2" for="race">Race</label>
+        <input type="text" class="form-control" id="race" placeholder="dog race" [(ngModel)]="formDog.race" name="race">
+      </div>
+      <div class="col-6">
+        <label class="pl-2" for="race">Color</label>
+        <input type="text" class="form-control" id="color" placeholder="color" [(ngModel)]="formDog.color" name="color">
+      </div>
+      <div class="col-6">
+        <label class="pl-2" for="race">Size</label>
+        <input type="text" class="form-control" id="size" placeholder="size" [(ngModel)]="formDog.size" name="size">
+      </div>
+      <div class="col-6">
+        <label class="pl-2" for="race">Weight</label>
+        <input type="text" class="form-control" id="weight" placeholder="weight" [(ngModel)]="formDog.weight" name="weight">
+      </div>
+    </div>
+
+    <div class="col-4">
+      <label class="pl-2" for="race">Details</label>
+      <label for="weight"></label><textarea type="text" style="height: 120px" class="form-control" id="details" placeholder="details" [(ngModel)]="formDog.details" name="details"></textarea>
+    </div>
+  </div>
+
+  <div class="col-12 text-center p-2">
+    <button type="button" class="btn btn-success align-items-center" (click)="onSubmit()">Submit</button>
+  </div>
+</form>

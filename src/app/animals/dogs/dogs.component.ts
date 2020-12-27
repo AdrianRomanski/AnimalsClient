@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DogsDataService} from './dogs-data.service';
 import {Dog} from '../../model/Dog';
 import {BehaviorSubject, combineLatest} from 'rxjs';
@@ -48,6 +48,15 @@ export class DogsComponent implements OnInit{
 
   getDog(id: number): void {
     this.router.navigate(['admin', 'dogs'], {queryParams : {id, action : 'view'}});
+  }
+
+  addDog(): void {
+    this.selectedDog = new Dog();
+    this.router.navigate(['admin', 'dogs'], {queryParams : {action : 'add'}});
+  }
+
+  editDog(dogID: number): void {
+    this.router.navigate(['admin', 'dogs'], {queryParams: {action: 'edit', id : dogID}});
   }
 
 }

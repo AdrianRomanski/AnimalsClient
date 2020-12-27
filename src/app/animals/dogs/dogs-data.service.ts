@@ -13,6 +13,16 @@ export class DogsDataService {
     return of(this.dogs);
   }
 
+  updateDog(dog: Dog): Observable<Dog> {
+    const originalDog = this.dogs.find(d => d.id === dog.id);
+    originalDog.details = dog.details;
+    originalDog.race = dog.race;
+    originalDog.weight = dog.weight;
+    originalDog.size = dog.size;
+    originalDog.color = dog.color;
+    return of(originalDog);
+  }
+
   constructor() {
     this.dogs = new Array<Dog>();
 

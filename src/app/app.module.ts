@@ -10,6 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule, Routes} from '@angular/router';
 import { EditDogComponent } from './animals/dogs/edit-dog/edit-dog.component';
 import { DetailDogComponent } from './animals/dogs/detail-dog/detail-dog.component';
+import {FormsModule} from '@angular/forms';
 
 const routes: Routes = [
   {path : 'admin/dogs', component : DogsComponent}
@@ -28,7 +29,8 @@ const routes: Routes = [
     AppRoutingModule,
     CdkTableModule,
     NgbModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
